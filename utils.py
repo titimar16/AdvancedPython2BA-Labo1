@@ -3,13 +3,11 @@
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
 
+from math import *
+from scipy.integrate import quad
+
 def fact(n):
-	"""Computes the factorial of a natural number.
-	
-	Pre: -
-	Post: Returns the factorial of 'n'.
-	Throws: ValueError if n < 0
-	"""
+
 	if n < 0:
 		raise ValueError()
 	z = 1
@@ -21,13 +19,19 @@ def fact(n):
 
 
 def roots(a, b, c):
-	"""Computes the roots of the ax^2 + bx + x = 0 polynomial.
-	
-	Pre: -
-	Post: Returns a tuple with zero, one or two elements corresponding
-		to the roots of the ax^2 + bx + c polynomial.
-	"""
-	pass
+
+	z = (b^2 - 4*a*c)
+	if z == 0:
+		g = -b/(2*a)
+		return (g)
+	elif z > 0:
+		g = (-b + sqrt(z))/(2*a)
+		h = (-b - sqrt(z))/(2*a)
+		return (g, h)
+	else:
+		return None
+		
+
 
 def integrate(function, lower, upper):
 	"""Approximates the integral of a fonction between two bounds
@@ -41,8 +45,16 @@ def integrate(function, lower, upper):
 	Hint: You can use the 'integrate' function of the module 'scipy' and
 		you'll probably need the 'eval' function to evaluate the function
 		to integrate given as a string.
+	
 	"""
-	pass
+	if lower <= upper:
+		ans, err = quad(function, lower, upper)
+		return ans
+	
+	    
+
+
+	
 
 if __name__ == '__main__':
 	print(fact(5))
