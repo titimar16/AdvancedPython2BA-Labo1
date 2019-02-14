@@ -48,8 +48,9 @@ def integrate(function, lower, upper):
 	
 	"""
 	if lower <= upper:
-		ans, err = quad(function, lower, upper)
-		return ans
+		f= lambda x:function
+		i = scipy.integrate.quad(f, lower, upper)
+		return i
 	
 	    
 
