@@ -10,7 +10,15 @@ def fact(n):
 	Post: Returns the factorial of 'n'.
 	Throws: ValueError if n < 0
 	"""
-	pass
+	if n < 0:
+		raise ValueError()
+	z = 1
+	for i in range(1,n+1):
+		z = z * i
+	return z
+	
+
+
 
 def roots(a, b, c):
 	"""Computes the roots of the ax^2 + bx + x = 0 polynomial.
