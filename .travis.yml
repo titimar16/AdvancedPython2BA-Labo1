@@ -1,4 +1,5 @@
 language: python
 python:
   - "3.5"
+script: python -m pip install --user scipyCollecting scipy
 script: python test_utils.py
